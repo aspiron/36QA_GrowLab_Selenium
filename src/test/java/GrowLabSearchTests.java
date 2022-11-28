@@ -7,7 +7,7 @@ public class GrowLabSearchTests extends TestBase{
 
     @BeforeMethod
     public void ensurePreconditions() throws InterruptedException {
-        loginAsManager();
+        login("billye@example.com");
         Thread.sleep(2000);
         dr.get("https://derrick686.softr.app/clients");
     }
@@ -49,8 +49,12 @@ public class GrowLabSearchTests extends TestBase{
             String noResultsFound = dr.getPageSource();
             Assert.assertTrue(noResultsFound.contains("No results found, try adjusting your search and filters"));
         }
- //
-
+ //отдельный класс, наследующий тестбейс
+    // авторизация под всеми ролями,
+    // проверка что есть из того что должно быть в каждом акке, и что нет того, чего быть там не должно
+    // в т.ч. переход на другую страницу, там проверки наличия элементов, и возврат оттуда
+// попробовать вынести отдельные методы в хелпер класс POM
+    // проверка фильтров по ролям на странице поиска
 
 
 
